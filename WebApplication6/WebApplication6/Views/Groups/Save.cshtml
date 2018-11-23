@@ -1,0 +1,45 @@
+﻿@model WebApplication6.Models.Group
+
+<h2>Save</h2>
+@using (Html.BeginForm("save", "groups", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.ID > 0)
+    {
+        @Html.HiddenFor(a => a.ID)
+    }
+
+    <div class="form-group">
+        <label>Name Group</label>
+        @Html.TextBoxFor(a => a.GroupName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.GroupName)
+    </div>
+    <div class="form-group">
+        <label>Privacy</label>
+        @Html.TextBoxFor(a => a.Privacy, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Privacy)
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextBoxFor(a => a.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Description)
+    </div>
+    <div class="form-group">
+        <label>Session</label>
+        @Html.TextBoxFor(a => a.Session, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Session)
+    </div>
+    <div class="form-group">
+        <label>Faculty</label>
+        @Html.TextBoxFor(a => a.Faculty, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Faculty)
+    </div>
+    <div class="form-group">
+        <label>Creator</label>
+        @Html.TextBoxFor(a => a.Creator, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Creator)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

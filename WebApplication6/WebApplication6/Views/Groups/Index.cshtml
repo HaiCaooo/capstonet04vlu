@@ -5,77 +5,53 @@
     Layout = "~/Views/Layout.cshtml";
 }
 
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Group management</h3>
-            </div>
+
+
+
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Group management</h3>
         </div>
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="panel-primary filterable">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2>My Group</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a href="~/Groups/Create" class="glyphicon glyphicon-plus"></a></li>
-
-                                <li>
-                                    <a class="btn-filter glyphicon glyphicon-search">
-                                    </a>
-                                </li>
-
-                                <!-- <li>
-                                    <div class="pull-right">
-                                        <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
-                                    </div>
-                                </li> -->
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <br />
-                            <table class="table">
-                                <thead>
-                                    <tr class="filters">
-                                        <th><input type="text" class="form-control" placeholder="Name Group" disabled></th>
-                                        <th><input type="text" class="form-control" placeholder="Privacy" disabled></th>
-                                        <th><input type="text" class="form-control" placeholder="Description" disabled /></th>
-                                        <th><input type="text" class="form-control" placeholder="Session" disabled></th>
-                                        <th><input type="text" class="form-control" placeholder="Faculty" disabled></th>
-                                        <th><input type="text" class="form-control" placeholder="Creator" disabled></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@Html.DisplayFor(modelItem => item.GroupName)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Privacy)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Session)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Faculty)</td>
-                                            <td>@Html.DisplayFor(modelItem => item.Creator)</td>
-                                            <td>@Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit" })</td>
-                                            <td>@Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-trash" })</td>
-                                            <td>@Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "glyphicon glyphicon-remove" })</td>
-
-                                        </tr>
-                                    }
-
-                                </tbody>
-                            </table>
-                        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="panel-primary filterable">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>My Group</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a href="~/Groups/Create" class="glyphicon glyphicon-plus"></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <table id="mygroup" class="tablecontainer">
+                            <thead>
+                                <tr>
+                                    <th>Name Group</th>
+                                    <th>Privacy</th>
+                                    <th>Description</th>
+                                    <th>Session</th>
+                                    <th>Faculty</th>
+                                    <th>Creator</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
+
+
+
+
+
 

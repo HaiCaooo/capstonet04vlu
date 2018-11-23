@@ -183,8 +183,8 @@ C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonV
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\bin\Microsoft.AI.Web.xml
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.csprojAssemblyReference.cache
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.csproj.CoreCompileInputs.cache
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.csproj.CopyComplete
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.dll
 C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.pdb
+C:\Users\LeeSanHoon\Documents\K21T1-T150730-NguyenTanNinh\Năm4\Capston\CapstonVLU\WebApplication6\WebApplication6\obj\Debug\WebApplication6.csprojAssemblyReference.cache

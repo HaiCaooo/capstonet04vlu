@@ -17,23 +17,19 @@ namespace WebApplication6.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            return View(db.Groups.ToList());
+            return View();
+        }
+
+        public ActionResult GetGroup()
+        {
+
+            var group = db.Groups.OrderBy(a => a.GroupName).ToList();
+            return Json(new { data = group }, JsonRequestBehavior.AllowGet);
+
         }
 
         // GET: Groups/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
-        }
+
 
         // GET: Groups/Create
         public ActionResult Create()
@@ -58,70 +54,87 @@ namespace WebApplication6.Controllers
             return View(group);
         }
 
-        // GET: Groups/Edit/5
-        public ActionResult Edit(int? id)
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
+
+
+        [HttpGet]
+        public ActionResult Save(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Group group = db.Groups.Find(id);
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            return View(group);
+            var v = db.Groups.Where(a => a.ID == id).FirstOrDefault();
+            return View(v);
+
         }
 
-        // POST: Groups/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,GroupName,Privacy,Description,Session,Faculty,Creator")] Group group)
+        public ActionResult Save(Group gr)
         {
+            bool status = false;
             if (ModelState.IsValid)
             {
-                db.Entry(group).State = EntityState.Modified;
+
+                if (gr.ID > 0)
+                {
+                    //Edit 
+                    var v = db.Groups.Where(a => a.ID == gr.ID).FirstOrDefault();
+                    if (v != null)
+                    {
+                        v.GroupName = gr.GroupName;
+                        v.Privacy = gr.Privacy;
+                        v.Description = gr.Description;
+                        v.Session = gr.Session;
+                        v.Faculty = gr.Faculty;
+                        v.Creator = gr.Creator;
+                    }
+                }
+                else
+                {
+                    //Save
+                    db.Groups.Add(gr);
+                }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                status = true;
+
             }
-            return View(group);
+            return new JsonResult { Data = new { status = status } };
         }
 
-        // GET: Groups/Delete/5
-        public ActionResult Delete(int? id)
+
+
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var v = db.Groups.Where(a => a.ID == id).FirstOrDefault();
+            if (v != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(v);
             }
-            Group group = db.Groups.Find(id);
-            if (group == null)
+            else
             {
                 return HttpNotFound();
             }
-            return View(group);
         }
 
-        // POST: Groups/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteGroup(int id)
         {
-            Group group = db.Groups.Find(id);
-            db.Groups.Remove(group);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            bool status = false;
+            var v = db.Groups.Where(a => a.ID == id).FirstOrDefault();
+            if (v != null)
             {
-                db.Dispose();
+                db.Groups.Remove(v);
+                db.SaveChanges();
+                status = true;
             }
-            base.Dispose(disposing);
+            return new JsonResult { Data = new { status = status } };
         }
+
     }
 }
